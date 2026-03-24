@@ -1,7 +1,7 @@
 (function () {
   const SHEET_URL = "https://script.google.com/macros/s/AKfycbxVy1qtiyteTOXr7q0vBNLvvbcxoHOnZncouWCD2AhEG6ns4qcElkwokJdNmb0e3ltt8Q/exec";
   const MAILBITE_KEY = "9OS7K5lAbUO7H5BYrIJuXmlSQOScekK68C91";
-  const WEBSITE_NAME = "AIAC WEST AFRICA"; // ← change this per website
+  const WEBSITE_NAME = "AIAC AFRICA"; // ← change this per website
 
   const css = `
     #_cb_launcher{position:fixed;bottom:28px;right:28px;width:56px;height:56px;border-radius:50%;background:#37B880;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.2);z-index:99999;transition:transform .2s;}
@@ -11,7 +11,7 @@
     #_cb_badge{position:absolute;top:-3px;right:-3px;width:18px;height:18px;background:#ef4444;border-radius:50%;font-size:10px;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;border:2px solid #fff;font-family:sans-serif;}
     #_cb_window{position:fixed;bottom:96px;right:28px;width:360px;height:540px;background:#fff;border-radius:20px;border:1px solid #e5e5e3;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.13);z-index:99998;transform:scale(0.92) translateY(16px);opacity:0;pointer-events:none;transition:transform .25s cubic-bezier(0.34,1.56,0.64,1),opacity .2s ease;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
     #_cb_window.open{transform:scale(1) translateY(0);opacity:1;pointer-events:all;}
-    ._cb_header{padding:16px 18px;background:#111;display:flex;align-items:center;gap:12px;}
+    ._cb_header{padding:16px 18px;background:#37B880;display:flex;align-items:center;gap:12px;}
     ._cb_avatar{width:38px;height:38px;border-radius:50%;background:#37B880;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;}
     ._cb_hname{font-size:14px;font-weight:600;color:#fff;}
     ._cb_hstatus{font-size:11px;color:#aaa;display:flex;align-items:center;gap:5px;margin-top:2px;}
@@ -22,7 +22,7 @@
     ._cb_msg{max-width:85%;font-size:13.5px;line-height:1.55;padding:10px 13px;border-radius:16px;animation:_cb_up .2s ease;}
     @keyframes _cb_up{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
     ._cb_bot{background:#f5f5f3;color:#111;border-bottom-left-radius:4px;align-self:flex-start;}
-    ._cb_user{background:#111;color:#fff;border-bottom-right-radius:4px;align-self:flex-end;}
+    ._cb_user{background:#37B880;color:#fff;border-bottom-right-radius:4px;align-self:flex-end;}
     ._cb_qr{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;animation:_cb_up .25s ease;}
     ._cb_qrbtn{padding:7px 12px;border-radius:20px;border:1.5px solid #37B880;background:#fff;font-size:12px;color:#111;cursor:pointer;transition:all .15s;font-family:inherit;white-space:nowrap;font-weight:500;}
     ._cb_qrbtn:hover{background:#37B880;color:#fff;}
@@ -45,7 +45,7 @@
     #_cb_input:focus{border-color:#37B880;background:#fff;}
     #_cb_input::placeholder{color:#bbb;}
     #_cb_input:disabled{opacity:0.4;cursor:not-allowed;}
-    #_cb_sendbtn{width:36px;height:36px;border-radius:50%;background:#111;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
+    #_cb_sendbtn{width:36px;height:36px;border-radius:50%;background:#37B880;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
     #_cb_sendbtn:hover{background:#333;}
     ._cb_link{color:#37B880;text-decoration:underline;font-weight:500;display:inline-block;margin-top:6px;}
     ._cb_powered{text-align:center;font-size:10px;color:#ccc;padding:5px 0 3px;}
@@ -63,9 +63,11 @@
   win.id = '_cb_window';
   win.innerHTML = `
     <div class="_cb_header">
-      <div class="_cb_avatar">🌍</div>
+      <div class="_cb_avatar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg>
+      </div>
       <div>
-        <div class="_cb_hname">AIAC WEST AFRICA Assistant</div>
+        <div class="_cb_hname">AIAC AFRICA Assistant</div>
         <div class="_cb_hstatus"><span class="_cb_dot"></span> Online · Always here to help</div>
       </div>
     </div>
@@ -74,22 +76,22 @@
       <input type="text" id="_cb_input" placeholder="Enter your email above first..." disabled />
       <button id="_cb_sendbtn"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24"><path fill="#fff" d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg></button>
     </div>
-    <div class="_cb_powered">AIAC WEST AFRICA · Smart Assistant</div>
+    <div class="_cb_powered">AIAC AFRICA · Smart Assistant</div>
   `;
   document.body.appendChild(win);
 
   const FAQ = {
-    about: "AIAC WEST AFRICA brings together industry leaders, innovators, and decision-makers at the forefront of Asset Integrity, Automation & Cybersecurity. This premier conference and exhibition serves as a vital platform for showcasing the latest advancements in ensuring the reliability and safety of industrial assets, implementing cutting-edge automation, and strengthening cybersecurity across the energy and industrial sectors.",
+    about: "AIAC AFRICA brings together industry leaders, innovators, and decision-makers at the forefront of Asset Integrity, Automation & Cybersecurity. This premier conference and exhibition serves as a vital platform for showcasing the latest advancements in ensuring the reliability and safety of industrial assets, implementing cutting-edge automation, and strengthening cybersecurity across the energy and industrial sectors.",
     when: "📅 9-10 JUNE 2026\n📍 Location: Lagos, Nigeria\n🎯 Focus: Asset Integrity, Automation & Cybersecurity Conference & Exhibition\n\nDoors open at 8:00 AM daily!",
     register: {
       text: "Registering is easy! We have Visitor Passes, Delegate Packages, and VIP options available.\n\nClick below to secure your spot:",
       link: "Register Now →",
-      url: "https://www.aiac-west-africa.com/registrations"
+      url: "https://www.aiacafrica.com/registrations"
     },
-    sponsor: "🤝 Sponsorship Packages:\n\n💎 Diamond – USD 75,000\n🥇 Platinum – USD 55,000\n🥈 Gold – USD 40,000\n🥉 Silver – USD 25,000\n\nEach package includes exhibition space, branding & delegate passes.\n📧 Contact: sponsor@aiac-west-africa.com"
+    sponsor: "🤝 Sponsorship Opportunities:\n\nFor sponsorship details and packages, please contact our team. We would be happy to provide you with more information on how you can participate.\n\n📧 Contact: register@aiacafrica.com"
   };
 
-  const MAIN_QRS = ["What is AIAC WEST AFRICA?", "Event Date & Venue", "How to Register?", "Sponsorship Details"];
+  const MAIN_QRS = ["What is AIAC AFRICA?", "Event Date & Venue", "How to Register?", "Sponsorship Details"];
   let chatOpen = false, greeted = false, emailCollected = false;
 
   launcher.addEventListener('click', () => {
@@ -104,7 +106,7 @@
     showTyping();
     setTimeout(() => {
       removeTyping();
-      addBot("👋 Hello! Welcome to AIAC WEST AFRICA!\n\nTo get started, please share your email address. We'll keep you updated about our upcoming event in Lagos, Nigeria! 📩");
+      addBot("👋 Hello! Welcome to AIAC AFRICA!\n\nTo get started, please share your email address. We'll keep you updated about our upcoming event! 📩");
       setTimeout(showEmailCard, 350);
     }, 900);
   }
@@ -187,7 +189,7 @@
     showTyping();
     setTimeout(() => {
       removeTyping();
-      addBot("🎉 Thank you! Your email has been saved.\n\nWe'll keep you updated on AIAC WEST AFRICA in Lagos, Nigeria. How can I help you today?", MAIN_QRS);
+      addBot("🎉 Thank you! Your email has been saved.\n\nWe'll keep you updated on AIAC AFRICA. How can I help you today?", MAIN_QRS);
     }, 800);
   }
 
@@ -249,7 +251,7 @@
       removeTyping();
       if (t.match(/^(hi|hello|hey|greetings)/)) {
         addBot("👋 Hello again! How can I help you today?", MAIN_QRS);
-      } else if (t.includes('what is') || t.includes('about') || t.includes('AIAC WEST AFRICA')) {
+      } else if (t.includes('what is') || t.includes('about') || t.includes('aiac africa')) {
         addBot(FAQ.about, MAIN_QRS);
       } else if (t.includes('date') || t.includes('when') || t.includes('where') || t.includes('venue') || t.includes('location') || t.includes('event')) {
         addBot(FAQ.when, MAIN_QRS);
@@ -258,11 +260,11 @@
       } else if (t.includes('sponsor') || t.includes('package') || t.includes('partner') || t.includes('diamond') || t.includes('platinum') || t.includes('gold') || t.includes('silver')) {
         addBot(FAQ.sponsor, MAIN_QRS);
       } else if (t.includes('thank')) {
-        addBot("You're welcome! 😊 See you at AIAC WEST AFRICA 2026 in Lagos, Nigeria!", MAIN_QRS);
+        addBot("You're welcome! 😊 See you at AIAC AFRICA 2026!", MAIN_QRS);
       } else if (t.includes('bye') || t.includes('goodbye')) {
-        addBot("Goodbye! 👋 See you at AIAC WEST AFRICA 2026 in Lagos, Nigeria. Feel free to come back anytime!", []);
+        addBot("Goodbye! 👋 See you at AIAC AFRICA 2026. Feel free to come back anytime!", []);
       } else {
-        addBot("I'm here to help with AIAC WEST AFRICA EXPO 2026. Please choose a topic below:", MAIN_QRS);
+        addBot("I'm here to help with AIAC AFRICA EXPO 2026. Please choose a topic below:", MAIN_QRS);
       }
     }, 700);
   }
