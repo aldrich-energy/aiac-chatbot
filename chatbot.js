@@ -12,9 +12,9 @@
     #_cb_window{position:fixed;bottom:96px;right:28px;width:360px;height:540px;background:#fff;border-radius:20px;border:1px solid #e5e5e3;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.13);z-index:99998;transform:scale(0.92) translateY(16px);opacity:0;pointer-events:none;transition:transform .25s cubic-bezier(0.34,1.56,0.64,1),opacity .2s ease;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
     #_cb_window.open{transform:scale(1) translateY(0);opacity:1;pointer-events:all;}
     ._cb_header{padding:16px 18px;background:#37B880;display:flex;align-items:center;gap:12px;}
-    ._cb_avatar{width:38px;height:38px;border-radius:50%;background:#37B880;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;}
+    ._cb_avatar{width:38px;height:38px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;}
     ._cb_hname{font-size:14px;font-weight:600;color:#fff;}
-    ._cb_hstatus{font-size:11px;color:#aaa;display:flex;align-items:center;gap:5px;margin-top:2px;}
+    ._cb_hstatus{font-size:11px;color:#fff;display:flex;align-items:center;gap:5px;margin-top:2px;opacity:0.9;}
     ._cb_dot{width:6px;height:6px;border-radius:50%;background:#22c55e;display:inline-block;}
     #_cb_msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:9px;scroll-behavior:smooth;}
     #_cb_msgs::-webkit-scrollbar{width:3px;}
@@ -64,7 +64,7 @@
   win.innerHTML = `
     <div class="_cb_header">
       <div class="_cb_avatar">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#37B880" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg>
       </div>
       <div>
         <div class="_cb_hname">AIAC AFRICA Assistant</div>
@@ -88,7 +88,11 @@
       link: "Register Now →",
       url: "https://www.aiacafrica.com/registrations"
     },
-    sponsor: "🤝 Sponsorship Opportunities:\n\nFor sponsorship details and packages, please contact our team. We would be happy to provide you with more information on how you can participate.\n\n📧 Contact: register@aiacafrica.com"
+    sponsor: {
+      text: "🤝 Sponsorship Opportunities:\n\nFor sponsorship details and packages, please contact our team. We would be happy to provide you with more information on how you can participate.",
+      link: "📧 Contact: register@aiacafrica.com",
+      url: "mailto:register@aiacafrica.com"
+    }
   };
 
   const MAIN_QRS = ["What is AIAC AFRICA?", "Event Date & Venue", "How to Register?", "Sponsorship Details"];
@@ -258,7 +262,7 @@
       } else if (t.includes('register') || t.includes('ticket') || t.includes('pass') || t.includes('attend') || t.includes('how to')) {
         addBot(FAQ.register.text, MAIN_QRS, { link: FAQ.register.link, url: FAQ.register.url });
       } else if (t.includes('sponsor') || t.includes('package') || t.includes('partner') || t.includes('diamond') || t.includes('platinum') || t.includes('gold') || t.includes('silver')) {
-        addBot(FAQ.sponsor, MAIN_QRS);
+        addBot(FAQ.sponsor.text, MAIN_QRS, { link: FAQ.sponsor.link, url: FAQ.sponsor.url });
       } else if (t.includes('thank')) {
         addBot("You're welcome! 😊 See you at AIAC AFRICA 2026!", MAIN_QRS);
       } else if (t.includes('bye') || t.includes('goodbye')) {
