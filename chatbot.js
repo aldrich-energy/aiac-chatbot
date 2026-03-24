@@ -82,15 +82,15 @@
 
   const FAQ = {
     about: "AIAC AFRICA brings together industry leaders, innovators, and decision-makers at the forefront of Asset Integrity, Automation & Cybersecurity. This premier conference and exhibition serves as a vital platform for showcasing the latest advancements in ensuring the reliability and safety of industrial assets, implementing cutting-edge automation, and strengthening cybersecurity across the energy and industrial sectors.",
-    when: "📅 9-10 JUNE 2026\n📍 Location: Lagos, Nigeria\n🎯 Focus: Asset Integrity, Automation & Cybersecurity Conference & Exhibition\n\nDoors open at 8:00 AM daily!",
+    when: "📅 9-10 JUNE 2026\n📍 Location: Lagos, Nigeria\n🎯 Focus: Asset Integrity, Automation & Cybersecurity Conference & Exhibition",
     register: {
       text: "Registering is easy! We have Visitor Passes, Delegate Packages, and VIP options available.\n\nClick below to secure your spot:",
       link: "Register Now →",
       url: "https://www.aiacafrica.com/registrations"
     },
     sponsor: {
-      text: "🤝 Sponsorship Opportunities:\n\nFor sponsorship details and packages, please contact our team. We would be happy to provide you with more information on how you can participate.",
-      link: "📧 Contact: register@aiacafrica.com",
+      text: "Sponsorship Opportunities:\n\nFor sponsorship details and packages, please contact our team. We would be happy to provide you with more information on how you can participate.\n\n📧 Contact:",
+      link: "register@aiacafrica.com",
       url: "mailto:register@aiacafrica.com"
     }
   };
@@ -205,7 +205,8 @@
     d.textContent = text;
     if (linkObj) {
       const a = document.createElement('a');
-      a.href = linkObj.url; a.target = '_blank';
+      a.href = linkObj.url;
+      if (!linkObj.url.startsWith('mailto:')) a.target = '_blank';
       a.className = '_cb_link'; a.textContent = linkObj.link;
       d.appendChild(a);
     }
