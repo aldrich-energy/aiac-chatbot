@@ -1,7 +1,7 @@
 (function () {
   const SHEET_URL = "https://script.google.com/macros/s/AKfycbxVy1qtiyteTOXr7q0vBNLvvbcxoHOnZncouWCD2AhEG6ns4qcElkwokJdNmb0e3ltt8Q/exec";
-  const MAILBITE_KEY = "9OS7K5lAbUO7H5BYrIJuXmlSQOScekK68C91";
-  const WEBSITE_NAME = "AIAC AFRICA"; // ← change this per website
+  const MAILBITE_KEY = "L5X3cRWWY49edQQpI7b8YHM7ds1crJKltsOo";
+  const WEBSITE_NAME = "AIAC WEST AFRICA"; // ← change this per website
 
   const css = `
     #_cb_launcher{position:fixed;bottom:28px;right:28px;width:56px;height:56px;border-radius:50%;background:#37B880;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.2);z-index:99999;transition:transform .2s;}
