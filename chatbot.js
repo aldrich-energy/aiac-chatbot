@@ -1,6 +1,7 @@
 (function () {
-  const SHEET_URL = "https://script.google.com/macros/s/AKfycbxVy1qtiyteTOXr7q0vBNLvvbcxoHOnZncouWCD2AhEG6ns4qcElkwokJdNmb0e3ltt8Q/exec";
+  const SHEET_URL = "https://script.google.com/macros/s/AKfycbwLgLdTakPKptg3vqwIQSii__l7Q31VOwBLWQGUdWVtCVsKrZMSLR8b0tBaKVbVh3uNiQ/exec";
   const MAILBITE_KEY = "L5X3cRWWY49edQQpI7b8YHM7ds1crJKltsOo";
+  const NOTIFICATION_API = "https://aldrich-energy-htx9.vercel.app/api/aiac-email-notification";
   const WEBSITE_NAME = "AIAC WEST AFRICA"; // ← change this per website
 
   const css = `
@@ -178,7 +179,20 @@
         email: email,
         timestamp: new Date().toISOString(),
         website: WEBSITE_NAME,
+        source: "Chatbot"
       })
+    }).catch(() => {});
+
+    // Step 2.5: Email Notification
+    fetch(NOTIFICATION_API, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: email,
+        website: WEBSITE_NAME,
+        source: "Chatbot",
+        timestamp: new Date().toISOString(),
+      }),
     }).catch(() => {});
 
     // Step 3: Continue chat
